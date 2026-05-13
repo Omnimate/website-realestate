@@ -1,0 +1,294 @@
+import { useEffect, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import Navbar from './components/Navbar/Navbar'
+import Hero from './components/Hero/Hero'
+import FeaturedProperties from './components/FeaturedProperties/FeaturedProperties'
+import RealtorProfile from './components/RealtorProfile/RealtorProfile'
+import WhyChooseUs from './components/WhyChooseUs/WhyChooseUs'
+import Investment from './components/Investment/Investment'
+import Testimonials from './components/Testimonials/Testimonials'
+import Lifestyle from './components/Lifestyle/Lifestyle'
+import PropertySearch from './components/PropertySearch/PropertySearch'
+import LeadGen from './components/LeadGen/LeadGen'
+import Trust from './components/Trust/Trust'
+import SeoContent from './components/SeoContent/SeoContent'
+import Footer from './components/Footer/Footer'
+import Modal from './components/Modal/Modal'
+import BackToTop from './components/BackToTop/BackToTop'
+import Toast from './components/Toast/Toast'
+import ChatWidget from './components/ChatWidget/ChatWidget'
+import InquiryModal from './components/InquiryModal/InquiryModal'
+import NotFound from './components/NotFound/NotFound'
+
+import {
+  heroData,
+  properties,
+  realtor,
+  stats,
+  testimonials,
+  locations,
+  trustItems,
+  blogPosts,
+} from './utils/data'
+
+function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [chatOpen, setChatOpen] = useState(false)
+
+  const [toasts, setToasts] = useState([])
+
+  const [pageLoaded, setPageLoaded] = useState(
+    () =>
+      typeof document !== 'undefined' &&
+      document.readyState === 'complete',
+  )
+
+  /* ---------------- NAV LINKS ---------------- */
+
+  const navLinks = [
+    {
+      label: 'Properties',
+      href: '#properties',
+    },
+    {
+      label: 'About',
+      href: '#about',
+    },
+    {
+      label: 'Investment',
+      href: '#investment',
+    },
+    {
+      label: 'Contact',
+      href: '#contact',
+    },
+  ]
+
+  /* ---------------- TOAST ---------------- */
+
+  const addToast = (message) => {
+    const id = Date.now()
+
+    setToasts((prev) => [
+      ...prev,
+      {
+        id,
+        message,
+      },
+    ])
+
+    window.setTimeout(() => {
+      setToasts((prev) =>
+        prev.filter((toast) => toast.id !== id),
+      )
+    }, 3500)
+  }
+
+  /* ---------------- HANDLERS ---------------- */
+
+  const handleSearchSubmit = () => {
+    addToast(
+      'Search filters received. Our luxury advisors are curating the perfect estate for you.',
+    )
+  }
+
+  const handleInquirySuccess = () => {
+    addToast(
+      'Your inquiry has been submitted successfully. A dedicated luxury advisor will contact you shortly.',
+    )
+
+    setIsModalOpen(false)
+  }
+
+  /* ---------------- PAGE LOADER ---------------- */
+
+  useEffect(() => {
+    if (pageLoaded) {
+      return undefined
+    }
+
+    const onLoad = () => {
+      setPageLoaded(true)
+    }
+
+    window.addEventListener('load', onLoad)
+
+    return () => {
+      window.removeEventListener('load', onLoad)
+    }
+  }, [pageLoaded])
+
+  /* ---------------- APP ---------------- */
+
+  return (
+    <BrowserRouter>
+
+      {/* PAGE LOADER */}
+      <AnimatePresence>
+        {!pageLoaded && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{
+              opacity: 0,
+              transition: {
+                duration: 0.6,
+              },
+            }}
+            className="fixed inset-0 z-[999] flex items-center justify-center bg-[#0f0f0f]"
+          >
+
+            <div className="flex flex-col items-center">
+
+              <div className="h-20 w-20 animate-spin rounded-full border-[3px] border-[#d7b87b]/20 border-t-[#d7b87b]" />
+
+              <p className="mt-8 text-xs uppercase tracking-[0.45em] text-white/70">
+                Loading Luxury Experience
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* APP */}
+      <div className="overflow-hidden bg-white text-[#151515]">
+
+        {/* NAVBAR */}
+        <Navbar
+          logo="LUXE ESTATES"
+          navLinks={navLinks}
+          onOpenModal={() => setIsModalOpen(true)}
+          onOpenChat={() => setChatOpen(true)}
+        />
+
+        {/* ROUTES */}
+        <Routes>
+
+          {/* HOME */}
+          <Route
+            path="/"
+            element={
+              <>
+                {/* HERO */}
+                <Hero
+                  heroData={heroData}
+                  onOpenModal={() => setIsModalOpen(true)}
+                />
+
+                {/* PROPERTIES */}
+                <FeaturedProperties
+                  properties={properties || []}
+                  onOpenInquiry={() => setIsModalOpen(true)}
+                />
+
+                {/* REALTOR */}
+                <RealtorProfile
+                  realtor={realtor}
+                  stats={stats}
+                />
+
+                {/* WHY CHOOSE US */}
+                <WhyChooseUs
+                  stats={stats || []}
+                />
+
+                {/* INVESTMENT */}
+                <Investment />
+
+                {/* TESTIMONIALS */}
+                <Testimonials
+                  testimonials={testimonials || []}
+                />
+
+                {/* LIFESTYLE */}
+                <Lifestyle
+                  locations={locations || []}
+                />
+
+                {/* SEARCH */}
+                <PropertySearch
+                  onSubmit={handleSearchSubmit}
+                />
+
+                {/* LEAD GENERATION */}
+                <LeadGen
+                  onBookConsultation={() =>
+                    setIsModalOpen(true)
+                  }
+                  onOpenChat={() =>
+                    setChatOpen(true)
+                  }
+                />
+
+                {/* TRUST */}
+                <Trust
+                  trustItems={trustItems || []}
+                />
+
+                {/* SEO CONTENT */}
+                <SeoContent
+                  blogPosts={blogPosts || []}
+                />
+
+                {/* FOOTER */}
+                <Footer />
+              </>
+            }
+          />
+
+          {/* 404 */}
+          <Route
+            path="*"
+            element={<NotFound />}
+          />
+        </Routes>
+
+        {/* MODAL */}
+        <AnimatePresence>
+          {isModalOpen && (
+            <Modal
+              isOpen={isModalOpen}
+              title="Private Luxury Inquiry"
+              onClose={() =>
+                setIsModalOpen(false)
+              }
+            >
+              <InquiryModal
+                onSuccess={
+                  handleInquirySuccess
+                }
+              />
+            </Modal>
+          )}
+        </AnimatePresence>
+
+        {/* TOAST */}
+        <Toast
+          messages={toasts}
+          onDismiss={(id) =>
+            setToasts((prev) =>
+              prev.filter(
+                (toast) =>
+                  toast.id !== id,
+              ),
+            )
+          }
+        />
+
+        {/* CHAT */}
+        <ChatWidget
+          isOpen={chatOpen}
+          onClose={() =>
+            setChatOpen(false)
+          }
+        />
+
+        {/* BACK TO TOP */}
+        <BackToTop />
+      </div>
+    </BrowserRouter>
+  )
+}
+
+export default App
