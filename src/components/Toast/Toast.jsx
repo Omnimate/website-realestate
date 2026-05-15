@@ -16,16 +16,19 @@ function Toast({ messages, onDismiss }) {
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-[0.7rem] uppercase tracking-[0.25em] text-gold">Notification</p>
+                <p className="text-[0.7rem] uppercase tracking-[0.25em] text-gold">
+                  Notification
+                </p>
                 <p className="mt-2 text-sm leading-6 text-dark-text">{toast.message}</p>
               </div>
+
               <button
                 type="button"
-                className="text-xl text-body-text hover:text-charcoal"
+                className="flex h-10 w-10 items-center justify-center rounded-full text-xl text-body-text hover:text-charcoal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
                 aria-label="Dismiss notification"
                 onClick={() => onDismiss(toast.id)}
               >
-                ×
+                x
               </button>
             </div>
           </motion.div>

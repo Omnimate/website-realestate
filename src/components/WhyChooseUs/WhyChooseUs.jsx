@@ -13,13 +13,13 @@ function StatCard({ stat }) {
       initial={{ opacity: 0, y: 60 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="rounded-[2rem] border border-gray-200 bg-warm-white p-8 text-center shadow-lg"
+      className="rounded-2xl border border-[#e7dfd2] bg-warm-white p-7 text-center shadow-[0_14px_42px_rgba(0,0,0,0.045)]"
     >
-      <div className="text-5xl font-semibold text-gold mb-3">
+      <div className="mb-2 text-4xl font-semibold text-gold">
         {count}
         {stat.suffix}
       </div>
-      <p className="text-base font-medium text-dark-text">{stat.label}</p>
+      <p className="text-sm font-medium text-dark-text">{stat.label}</p>
     </motion.div>
   )
 }
@@ -34,11 +34,11 @@ StatCard.propTypes = {
 
 function WhyChooseUs({ stats }) {
   return (
-    <section id="about" className="py-24 px-6 md:px-12 bg-white">
+    <section className="bg-white px-6 py-24 md:px-12">
       <div className="mx-auto max-w-7xl">
         <div className="section-header">
           <h2>Why Choose Us</h2>
-          <p>Exceptional service, proven performance, and capital strategies designed for the elite investor.</p>
+          <p>Clear advice, careful execution, and a measured approach to significant property decisions.</p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-5">

@@ -13,9 +13,9 @@ function DestinationCard({ location }) {
       initial={{ opacity: 0, y: 60 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="group overflow-hidden rounded-[2rem] shadow-2xl"
+      className="group overflow-hidden rounded-2xl shadow-[0_18px_52px_rgba(0,0,0,0.08)]"
     >
-      <div className="relative h-72 overflow-hidden rounded-[2rem]">
+      <div className="relative h-72 overflow-hidden rounded-2xl">
         <img
           alt={location.name}
           loading="lazy"
@@ -24,13 +24,13 @@ function DestinationCard({ location }) {
           onError={(event) => {
             event.target.src = fallbackImage
           }}
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.035]"
         />
-        <div className="absolute inset-0 bg-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         <div className="absolute inset-0 flex items-end p-6">
           <div>
-            <h3 className="text-2xl font-semibold text-white">{location.name}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-white/90">{location.description}</p>
+            <h3 className="text-2xl font-semibold leading-tight text-white">{location.name}</h3>
+            <p className="mt-2 text-sm leading-6 text-white/86">{location.description}</p>
           </div>
         </div>
       </div>
@@ -48,14 +48,14 @@ DestinationCard.propTypes = {
 
 function Lifestyle({ locations }) {
   return (
-    <section className="py-24 px-6 md:px-12 bg-warm-white">
+    <section className="bg-warm-white px-6 py-24 md:px-12">
       <div className="mx-auto max-w-7xl">
         <div className="section-header">
           <h2>Lifestyle Destinations</h2>
           <p>Explore the locations that define modern luxury living across the globe.</p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-4">
           {locations.map((location) => (
             <DestinationCard key={location.name} location={location} />
           ))}

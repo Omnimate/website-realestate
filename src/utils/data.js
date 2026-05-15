@@ -1,6 +1,6 @@
 export const heroData = {
-  headline: 'Every Estate Crafted for Lasting Legacy',
-  subheadline: 'An elite collection of cinematic residences, private advisory, and unmatched global access.',
+  headline: 'Private Estates, Quietly Chosen',
+  subheadline: 'Discreet advisory for exceptional homes, off-market opportunities, and long-term property decisions.',
   videoUrl: 'https://images.pexels.com/videos/856395/free-video-856395.mp4?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   imageUrl: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80',
 }
@@ -64,12 +64,12 @@ export const properties = [
 
 export const realtor = {
   name: 'Jonathan Blake',
-  photo: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=800&q=80',
-  experience: 'Jonathan is a global luxury advisor with 22 years of discreet high-net-worth representation and more than $620 million in elite property closings.',
-  achievements: ['Global Luxury Advisor 2026', 'Private portfolio concierge', 'Trusted by sovereign families'],
-  specializations: ['Legacy residences', 'Private investment advisory', 'Exclusive off-market estates'],
+  photo: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=900&q=82',
+  experience: '22 years advising private clients across landmark homes and off-market acquisitions.',
+  achievements: ['Global Luxury Advisor 2026', 'Private client advisory', 'Trusted by family offices'],
+  specializations: ['Primary residences', 'Portfolio advisory', 'Off-market estates'],
   languages: ['English', 'French', 'Arabic'],
-  bio: 'Jonathan blends editorial-level presentation, exclusive market access, and a concierge client experience to secure iconic homes, private retreats, and legacy estate investments.',
+  bio: 'Jonathan advises private clients on significant homes, discreet acquisitions, and long-term property strategy.',
 }
 
 export const stats = [
@@ -85,45 +85,45 @@ export const testimonials = [
     name: 'Julian Hart',
     photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=500&q=80',
     location: 'London, UK',
-    quote: 'Luxe Estates delivered a seamless experience. Every detail was handled privately, professionally, and with impeccable style.',
+    quote: 'Luxe Estates made the search clear, private, and exceptionally well managed from the first conversation.',
     videoUrl: 'https://images.pexels.com/videos/855564/free-video-855564.mp4?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   },
   {
     name: 'Mia Chen',
     photo: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=500&q=80',
     location: 'Hong Kong',
-    quote: 'Sophia’s insight helped secure the ideal investment property effortlessly. The team truly understands high-end markets.',
+    quote: 'The advice was precise and calm. We understood the market before making a decision.',
     videoUrl: 'https://images.pexels.com/videos/855564/free-video-855564.mp4?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   },
   {
     name: 'Carlos Alvarez',
     photo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80',
     location: 'Miami, FL',
-    quote: 'Every step felt curated and personal. I trusted them with my legacy purchase and they exceeded every expectation.',
+    quote: 'They handled the process with discretion and gave us confidence at every step.',
     videoUrl: 'https://images.pexels.com/videos/855564/free-video-855564.mp4?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   },
 ]
 
 export const locations = [
   {
-    name: 'Côte d’Azur Retreat',
+    name: "Cote d'Azur Retreat",
     image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80',
-    description: 'Mediterranean estates designed for privacy, prestige, and effortless luxury living.',
+    description: 'Mediterranean homes selected for privacy, setting, and long-term appeal.',
   },
   {
     name: 'Dubai Heights',
     image: 'https://images.unsplash.com/photo-1536184071530-155b0eca5a09?auto=format&fit=crop&w=1200&q=80',
-    description: 'Iconic towers, private concierge service, and unrivaled skyline vistas.',
+    description: 'City residences with strong services, views, and international access.',
   },
   {
     name: 'Santorini Villas',
     image: 'https://images.unsplash.com/photo-1551882547-ff3d3c07e8f2?auto=format&fit=crop&w=1200&q=80',
-    description: 'Aegean sunsets, private terraces, and signature island elegance.',
+    description: 'Island villas with quiet terraces, sea views, and considered design.',
   },
   {
     name: 'Malibu Estates',
     image: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80',
-    description: 'Coastal mansions with sweeping ocean views and premium amenities.',
+    description: 'Coastal homes shaped around ocean views, privacy, and daily ease.',
   },
 ]
 
@@ -137,19 +137,19 @@ export const trustItems = [
 export const blogPosts = [
   {
     title: 'The future of luxury real estate investment',
-    excerpt: 'Discover where elite buyers are placing their capital, and which markets are emerging as the most resilient luxury assets.',
+    excerpt: 'A clear look at where private buyers are placing capital and which markets are proving resilient.',
     image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80',
     link: '#',
   },
   {
     title: 'Evaluating a high-end estate with confidence',
-    excerpt: 'Learn the five essential factors that define enduring luxury value and smart portfolio growth.',
+    excerpt: 'Five practical signals that help separate lasting value from surface-level luxury.',
     image: 'https://images.unsplash.com/photo-1532960407616-8aafbd5f938c?auto=format&fit=crop&w=1200&q=80',
     link: '#',
   },
   {
     title: 'How premium listings attract global buyers',
-    excerpt: 'A behind-the-scenes look at staging, presentation, and market timing for world-class property launches.',
+    excerpt: 'How presentation, timing, and qualified access shape stronger property launches.',
     image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80',
     link: '#',
   },

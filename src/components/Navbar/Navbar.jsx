@@ -26,6 +26,7 @@ function Navbar({
     window.addEventListener(
       'scroll',
       handleScroll,
+      { passive: true },
     )
 
     return () =>
@@ -76,7 +77,8 @@ function Navbar({
         {/* LOGO */}
         <Link
           to="/"
-          className="group relative overflow-hidden"
+          className="group relative overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b89554]"
+          aria-label="Luxe Estates home"
         >
           <span className="relative z-10 text-[1.1rem] font-semibold uppercase tracking-[0.35em] text-[#151515] transition duration-300 group-hover:text-[#b89554]">
             {logo}
@@ -107,7 +109,7 @@ function Navbar({
                     link.href,
                   )
                 }
-                className="group relative flex items-center justify-center overflow-hidden rounded-full px-5 py-3 text-[0.78rem] font-semibold uppercase tracking-[0.24em] text-[#2d2d2d] transition-all duration-300"
+                className="group relative flex items-center justify-center overflow-hidden rounded-full px-5 py-3 text-[0.78rem] font-semibold uppercase tracking-[0.24em] text-[#2d2d2d] transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b89554]"
               >
 
                 {/* HOVER BACKGROUND */}
@@ -135,7 +137,7 @@ function Navbar({
             }}
             type="button"
             onClick={onOpenModal}
-            className="ml-3 rounded-full bg-gradient-to-r from-[#c7a86b] via-[#dcc18c] to-[#f3dfaa] px-8 py-4 text-[0.78rem] font-semibold uppercase tracking-[0.24em] text-[#14110d] shadow-[0_18px_60px_rgba(199,168,107,0.24)] transition-all duration-300 hover:shadow-[0_24px_80px_rgba(199,168,107,0.35)]"
+            className="ml-3 rounded-full bg-gradient-to-r from-[#c7a86b] via-[#dcc18c] to-[#f3dfaa] px-8 py-4 text-[0.78rem] font-semibold uppercase tracking-[0.24em] text-[#14110d] shadow-[0_18px_60px_rgba(199,168,107,0.24)] transition-all duration-300 hover:shadow-[0_24px_80px_rgba(199,168,107,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b89554]"
           >
             Inquiry
           </motion.button>
@@ -150,7 +152,7 @@ function Navbar({
             }}
             type="button"
             onClick={onOpenChat}
-            className="rounded-full border border-[#e4dccf] bg-white px-7 py-4 text-[0.78rem] font-semibold uppercase tracking-[0.24em] text-[#151515] transition-all duration-300 hover:border-[#b89554] hover:bg-[#f8f4ec] hover:text-[#b89554]"
+            className="rounded-full border border-[#e4dccf] bg-white px-7 py-4 text-[0.78rem] font-semibold uppercase tracking-[0.24em] text-[#151515] transition-all duration-300 hover:border-[#b89554] hover:bg-[#f8f4ec] hover:text-[#b89554] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b89554]"
           >
             Chat
           </motion.button>
@@ -162,7 +164,10 @@ function Navbar({
           onClick={() =>
             setMenuOpen(!menuOpen)
           }
-          className="flex h-12 w-12 items-center justify-center rounded-full border border-[#e5dfd4] bg-white lg:hidden"
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-[#e5dfd4] bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b89554] lg:hidden"
+          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
         >
           <div className="space-y-1.5">
             <span className="block h-[2px] w-5 bg-[#151515]" />
@@ -193,6 +198,7 @@ function Navbar({
               duration: 0.3,
             }}
             className="border-t border-[#ece6db] bg-white px-6 py-8 shadow-2xl lg:hidden"
+            id="mobile-navigation"
           >
             <div className="flex flex-col gap-4">
 
@@ -206,7 +212,7 @@ function Navbar({
                       link.href,
                     )
                   }
-                  className="rounded-2xl px-5 py-4 text-left text-sm font-semibold uppercase tracking-[0.22em] text-[#151515] transition-all duration-300 hover:bg-[#f8f4ec] hover:text-[#b89554]"
+                  className="rounded-2xl px-5 py-4 text-left text-sm font-semibold uppercase tracking-[0.22em] text-[#151515] transition-all duration-300 hover:bg-[#f8f4ec] hover:text-[#b89554] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b89554]"
                 >
                   {link.label}
                 </button>
@@ -218,7 +224,7 @@ function Navbar({
                   onOpenModal()
                   setMenuOpen(false)
                 }}
-                className="mt-3 rounded-full bg-gradient-to-r from-[#c7a86b] via-[#dcc18c] to-[#f3dfaa] px-6 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#14110d]"
+                className="mt-3 rounded-full bg-gradient-to-r from-[#c7a86b] via-[#dcc18c] to-[#f3dfaa] px-6 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#14110d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b89554]"
               >
                 Inquiry
               </button>
@@ -229,7 +235,7 @@ function Navbar({
                   onOpenChat()
                   setMenuOpen(false)
                 }}
-                className="rounded-full border border-[#e4dccf] px-6 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#151515]"
+                className="rounded-full border border-[#e4dccf] px-6 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#151515] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b89554]"
               >
                 Chat
               </button>

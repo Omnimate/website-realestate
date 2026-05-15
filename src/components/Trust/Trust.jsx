@@ -20,13 +20,13 @@ function TrustCard({ item }) {
       initial={{ opacity: 0, y: 60 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="rounded-[2rem] border border-gray-200 bg-warm-white p-8 text-center shadow-lg"
+      className="rounded-2xl border border-[#e7dfd2] bg-warm-white p-7 text-center shadow-[0_14px_42px_rgba(0,0,0,0.045)]"
     >
-      <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 text-gold">
-        <Icon className="h-7 w-7" />
+      <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-gold/10 text-gold">
+        <Icon className="h-6 w-6" />
       </div>
-      <p className="text-5xl font-semibold text-gold mb-3">{item.value}</p>
-      <p className="text-base text-body-text">{item.label}</p>
+      <p className="mb-2 text-4xl font-semibold text-gold">{item.value}</p>
+      <p className="text-sm text-body-text">{item.label}</p>
     </motion.div>
   )
 }
@@ -40,14 +40,14 @@ TrustCard.propTypes = {
 
 function Trust({ trustItems }) {
   return (
-    <section className="py-24 px-6 md:px-12 bg-white">
+    <section className="bg-white px-6 py-24 md:px-12">
       <div className="mx-auto max-w-7xl">
         <div className="section-header">
           <h2>Trust & Recognition</h2>
-          <p>Recognized by global partners, industry peers, and elite clients for unparalleled delivery.</p>
+          <p>Trusted by clients, partners, and advisors who value discretion and consistent execution.</p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {trustItems.map((item) => (
             <TrustCard key={item.label} item={item} />
           ))}

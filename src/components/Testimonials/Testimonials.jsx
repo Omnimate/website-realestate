@@ -16,33 +16,30 @@ function TestimonialCard({ item }) {
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7 }}
-      className="rounded-[2.5rem] border border-[#ebe4d6] bg-white p-8 shadow-[0_20px_70px_rgba(0,0,0,0.06)]"
+      className="rounded-2xl border border-[#ebe4d6] bg-white p-7 shadow-[0_16px_48px_rgba(0,0,0,0.045)]"
     >
-      <div className="text-6xl leading-none text-[#d7b87b]">
-        “
-      </div>
+      <div className="h-px w-12 bg-[#d7b87b]/70" />
 
-      <p className="mt-5 text-lg italic leading-9 text-[#5f5f5f]">
+      <p className="mt-6 text-base italic leading-8 text-[#5f5f5f]">
         {item.quote}
       </p>
 
       <div className="mt-8 flex items-center gap-4">
-
         <img
           src={item.photo || fallbackImage}
           alt={item.name}
-          onError={(e) => {
-            e.target.src = fallbackImage
+          onError={(event) => {
+            event.currentTarget.src = fallbackImage
           }}
-          className="h-16 w-16 rounded-full object-cover"
+          className="h-14 w-14 rounded-full object-cover"
         />
 
         <div>
-          <h4 className="text-lg font-semibold text-[#151515]">
+          <h4 className="text-base font-semibold text-[#151515]">
             {item.name}
           </h4>
 
-          <p className="text-sm text-[#777]">
+          <p className="text-sm text-[#6f6a62]">
             {item.location}
           </p>
         </div>
@@ -58,25 +55,22 @@ TestimonialCard.propTypes = {
 function Testimonials({ testimonials }) {
   return (
     <section className="bg-[#f8f6f2] px-6 py-24 md:px-12">
-
       <div className="mx-auto max-w-7xl">
-
         <div className="mb-16 text-center">
-
-          <p className="mb-4 text-xs uppercase tracking-[0.4em] text-[#b79b5b]">
+          <p className="mb-4 text-xs uppercase tracking-[0.32em] text-[#b79b5b]">
             Client Experiences
           </p>
 
-          <h2 className="text-5xl font-semibold text-[#151515]">
+          <h2 className="font-heading text-[clamp(2.1rem,4vw,3.35rem)] font-semibold leading-tight text-[#151515]">
             Trusted By Elite Investors
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#5f5f5f]">
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#5f5f5f]">
             Personalized luxury experiences crafted with discretion, trust, and exceptional market expertise.
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-7 md:grid-cols-3">
           {testimonials.map((item) => (
             <TestimonialCard
               key={item.name}

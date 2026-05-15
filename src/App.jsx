@@ -36,6 +36,7 @@ import {
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [chatOpen, setChatOpen] = useState(false)
+  const [inquirySource, setInquirySource] = useState('general')
 
   const [toasts, setToasts] = useState([])
 
@@ -88,15 +89,23 @@ function App() {
 
   /* ---------------- HANDLERS ---------------- */
 
-  const handleSearchSubmit = () => {
-    addToast(
-      'Search filters received. Our luxury advisors are curating the perfect estate for you.',
-    )
+  const openInquiry = (source = 'general') => {
+    setInquirySource(source)
+    setIsModalOpen(true)
   }
 
-  const handleInquirySuccess = () => {
+  const openChat = () => {
+    setChatOpen(true)
+  }
+
+  const handleInquirySuccess = ({ delivery }) => {
+    const message =
+      delivery === 'email'
+        ? 'Your email client is ready with your inquiry. Please send it to complete your request.'
+        : 'Your inquiry has been submitted successfully. A dedicated luxury advisor will contact you shortly.'
+
     addToast(
-      'Your inquiry has been submitted successfully. A dedicated luxury advisor will contact you shortly.',
+      message,
     )
 
     setIsModalOpen(false)
@@ -158,8 +167,8 @@ function App() {
         <Navbar
           logo="LUXE ESTATES"
           navLinks={navLinks}
-          onOpenModal={() => setIsModalOpen(true)}
-          onOpenChat={() => setChatOpen(true)}
+          onOpenModal={() => openInquiry('navbar')}
+          onOpenChat={openChat}
         />
 
         {/* ROUTES */}
@@ -173,13 +182,13 @@ function App() {
                 {/* HERO */}
                 <Hero
                   heroData={heroData}
-                  onOpenModal={() => setIsModalOpen(true)}
+                  onOpenModal={() => openInquiry('hero_consultation')}
                 />
 
                 {/* PROPERTIES */}
                 <FeaturedProperties
                   properties={properties || []}
-                  onOpenInquiry={() => setIsModalOpen(true)}
+                  onOpenInquiry={() => openInquiry('featured_property')}
                 />
 
                 {/* REALTOR */}
@@ -208,17 +217,18 @@ function App() {
 
                 {/* SEARCH */}
                 <PropertySearch
-                  onSubmit={handleSearchSubmit}
+                  onOpenInquiry={() => openInquiry('property_collection')}
                 />
 
                 {/* LEAD GENERATION */}
                 <LeadGen
                   onBookConsultation={() =>
-                    setIsModalOpen(true)
+                    openInquiry('leadgen_consultation')
                   }
                   onOpenChat={() =>
-                    setChatOpen(true)
+                    openChat()
                   }
+                  isChatOpen={chatOpen}
                 />
 
                 {/* TRUST */}
@@ -255,6 +265,7 @@ function App() {
               }
             >
               <InquiryModal
+                source={inquirySource}
                 onSuccess={
                   handleInquirySuccess
                 }

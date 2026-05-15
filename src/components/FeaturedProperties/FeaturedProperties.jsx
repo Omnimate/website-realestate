@@ -13,9 +13,9 @@ function PropertyCard({ property, onOpenInquiry }) {
       initial={{ opacity: 0, y: 60 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="group overflow-hidden rounded-[2rem] border border-gray-200/80 bg-white shadow-[0_30px_80px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-[0_40px_100px_rgba(0,0,0,0.14)]"
+      className="group overflow-hidden rounded-2xl border border-[#e7dfd2] bg-white shadow-[0_18px_50px_rgba(0,0,0,0.055)] transition-all duration-300 hover:-translate-y-1 hover:border-gold/70 hover:shadow-[0_26px_70px_rgba(0,0,0,0.09)]"
     >
-      <div className="overflow-hidden rounded-t-[2rem]">
+      <div className="overflow-hidden">
         <img
           alt={property.location}
           loading="lazy"
@@ -24,26 +24,26 @@ function PropertyCard({ property, onOpenInquiry }) {
           onError={(event) => {
             event.target.src = fallbackImage
           }}
-          className="h-80 w-full object-cover transition duration-500 group-hover:scale-105"
+          className="h-72 w-full object-cover transition duration-500 group-hover:scale-[1.035]"
         />
       </div>
-      <div className="space-y-5 p-7">
+      <div className="space-y-5 p-6">
         <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
-          <span className="text-2xl font-semibold text-gold">{property.price}</span>
-          <span className="text-sm font-medium uppercase tracking-[0.24em] text-body-text">{property.location}</span>
+          <span className="text-2xl font-semibold leading-none text-gold">{property.price}</span>
+          <span className="text-xs font-medium uppercase tracking-[0.18em] text-body-text">{property.location}</span>
         </div>
         <div className="text-lg font-medium text-dark-text">{property.size}</div>
         <ul className="space-y-2 text-sm text-body-text">
           {property.amenities.map((amenity) => (
             <li key={amenity} className="flex items-center gap-3">
-              <span className="inline-flex h-2.5 w-2.5 rounded-full bg-gold" />
+              <span className="inline-flex h-1.5 w-1.5 rounded-full bg-gold" />
               <span>{amenity}</span>
             </li>
           ))}
         </ul>
         <button
           type="button"
-          className="w-full rounded-full border border-gold bg-white px-6 py-3 text-sm font-semibold text-gold transition hover:bg-gold hover:text-white"
+          className="min-h-12 w-full rounded-full border border-gold bg-white px-6 py-3 text-sm font-semibold text-gold transition hover:bg-gold hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
           onClick={onOpenInquiry}
           aria-label={`Inquire about ${property.location}`}
         >
@@ -68,14 +68,14 @@ PropertyCard.propTypes = {
 
 function FeaturedProperties({ properties, onOpenInquiry }) {
   return (
-    <section id="properties" className="py-24 px-6 md:px-12 bg-warm-white">
+    <section id="properties" className="bg-warm-white px-6 py-24 md:px-12">
       <div className="mx-auto max-w-7xl">
         <div className="section-header">
           <h2>Featured Properties</h2>
-          <p>Curated estates with premium amenities tailored for world-class living.</p>
+          <p>Selected homes with strong settings, considered details, and room to live well.</p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
           {properties.map((property) => (
             <PropertyCard key={property.id} property={property} onOpenInquiry={onOpenInquiry} />
           ))}

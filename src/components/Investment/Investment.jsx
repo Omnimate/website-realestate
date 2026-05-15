@@ -25,7 +25,7 @@ function Investment() {
     {
       icon: FiGlobe,
       title: 'Global Portfolio',
-      text: 'Access elite investment opportunities across the world’s most desirable luxury destinations.',
+      text: 'Access carefully reviewed opportunities across established and emerging property markets.',
     },
     {
       icon: FiShield,
@@ -64,7 +64,7 @@ function Investment() {
           </h2>
 
           <p className="mt-8 text-lg leading-9 text-white/70">
-            Discover iconic residences, strategic acquisitions, and elite property investments curated for sophisticated investors and global portfolios.
+            Review residences, acquisitions, and property strategies for long-term portfolio planning.
           </p>
         </div>
 
@@ -78,17 +78,17 @@ function Investment() {
                 key={feature.title}
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.3 }}
-                className="rounded-[2.5rem] border border-white/10 bg-white/5 p-10 backdrop-blur-xl"
+                className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl md:p-9"
               >
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#d7b87b]/10 text-[#d7b87b]">
-                  <Icon className="h-8 w-8" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#d7b87b]/10 text-[#d7b87b]">
+                  <Icon className="h-7 w-7" />
                 </div>
 
-                <h3 className="mt-8 text-3xl font-semibold">
+                <h3 className="mt-7 text-2xl font-semibold">
                   {feature.title}
                 </h3>
 
-                <p className="mt-5 text-base leading-8 text-white/70">
+                <p className="mt-4 text-base leading-8 text-white/70">
                   {feature.text}
                 </p>
               </motion.div>
@@ -147,7 +147,7 @@ function Investment() {
           <button
             type="button"
             onClick={handleDiscover}
-            className="rounded-full bg-gradient-to-r from-[#c7a86b] via-[#e0ca90] to-[#f3e3b0] px-12 py-5 text-sm font-semibold uppercase tracking-[0.2em] text-[#14110d] shadow-[0_30px_90px_rgba(199,168,107,0.4)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_45px_120px_rgba(199,168,107,0.6)]"
+            className="rounded-full bg-gradient-to-r from-[#c7a86b] via-[#e0ca90] to-[#f3e3b0] px-12 py-5 text-sm font-semibold uppercase tracking-[0.2em] text-[#14110d] shadow-[0_30px_90px_rgba(199,168,107,0.4)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_45px_120px_rgba(199,168,107,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d7b87b]"
           >
             Discover Investment Plans
           </button>

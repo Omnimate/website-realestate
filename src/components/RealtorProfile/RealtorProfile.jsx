@@ -3,26 +3,26 @@ import { motion } from 'framer-motion'
 import { FiAward, FiShield, FiGlobe, FiArrowUpRight } from 'react-icons/fi'
 
 const fallbackImage =
-  'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80'
+  'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=900&q=82'
 
 const trustCards = [
   {
     icon: FiAward,
-    title: 'Luxury Expertise',
+    title: 'Market Judgment',
     description:
-      'Access to legacy-level residences that never reach the open market — curated for discerning principals only.',
+      'Guidance on significant homes, private opportunities, and the details that influence long-term value.',
   },
   {
     icon: FiShield,
-    title: 'Private Advisory',
+    title: 'Discreet Advisory',
     description:
-      'Every acquisition is handled with absolute discretion. Your identity, intent, and portfolio remain protected.',
+      'Searches are handled quietly, with clear communication and careful protection of client intent.',
   },
   {
     icon: FiGlobe,
-    title: 'Global Reach',
+    title: 'Selective Access',
     description:
-      'From the Côte d\'Azur to the Maldives — direct access to iconic estates and the people who hold them.',
+      'Introductions across established markets, private sellers, and trusted local specialists.',
   },
 ]
 
@@ -53,12 +53,13 @@ function RealtorProfile({ realtor }) {
 
   return (
     <section
+      id="about"
       style={{
         background: 'linear-gradient(160deg, #0d0c0a 0%, #161410 60%, #1c1813 100%)',
         minHeight: '100vh',
         fontFamily: "'Cormorant Garamond', 'Georgia', serif",
         color: '#e8dcc8',
-        padding: '80px 24px',
+        padding: '96px 24px',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -83,7 +84,7 @@ function RealtorProfile({ realtor }) {
           left: '50%',
           transform: 'translateX(-50%)',
           width: '1px',
-          height: '80px',
+          height: '72px',
           background: 'linear-gradient(to bottom, transparent, #c7a86b)',
           zIndex: 1,
         }}
@@ -97,11 +98,11 @@ function RealtorProfile({ realtor }) {
         style={{ maxWidth: '1280px', margin: '0 auto', position: 'relative', zIndex: 2 }}
       >
         {/* HEADER */}
-        <motion.div variants={fadeUp} style={{ textAlign: 'center', marginBottom: '72px' }}>
+        <motion.div variants={fadeUp} style={{ textAlign: 'center', marginBottom: '80px' }}>
           <p
             style={{
               fontSize: '11px',
-              letterSpacing: '0.35em',
+              letterSpacing: '0.28em',
               textTransform: 'uppercase',
               color: '#c7a86b',
               marginBottom: '20px',
@@ -109,11 +110,11 @@ function RealtorProfile({ realtor }) {
               fontWeight: 600,
             }}
           >
-            Private Luxury Advisory
+            Private Advisory
           </p>
           <h1
             style={{
-              fontSize: 'clamp(2.4rem, 5vw, 4rem)',
+              fontSize: 'clamp(2.25rem, 4.5vw, 3.65rem)',
               fontWeight: 300,
               lineHeight: 1.1,
               color: '#f0e6d0',
@@ -121,15 +122,15 @@ function RealtorProfile({ realtor }) {
               letterSpacing: '-0.01em',
             }}
           >
-            Guidance Built on{' '}
-            <em style={{ color: '#c7a86b', fontStyle: 'italic' }}>Trust & Prestige</em>
+            Steady Guidance for{' '}
+            <em style={{ color: '#c7a86b', fontStyle: 'italic' }}>Important Decisions</em>
           </h1>
           <p
             style={{
               fontSize: '1.05rem',
               lineHeight: 1.75,
               color: '#a89880',
-              maxWidth: '540px',
+              maxWidth: '580px',
               margin: '0 auto',
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 300,
@@ -144,11 +145,11 @@ function RealtorProfile({ realtor }) {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '40px',
+            gap: '48px',
             alignItems: 'start',
           }}
         >
-          {/* LEFT COLUMN — Image */}
+          {/* LEFT COLUMN - Image */}
           <motion.div variants={fadeIn} style={{ position: 'relative' }}>
             <div
               style={{
@@ -164,12 +165,15 @@ function RealtorProfile({ realtor }) {
                 onError={(e) => {
                   e.target.src = fallbackImage
                 }}
+                loading="lazy"
+                decoding="async"
                 style={{
                   width: '100%',
-                  height: '580px',
+                  height: '600px',
                   objectFit: 'cover',
-                  objectPosition: 'top center',
+                  objectPosition: 'center 18%',
                   display: 'block',
+                  filter: 'saturate(0.92) contrast(1.04)',
                   transition: 'transform 1.4s ease',
                 }}
                 onMouseEnter={(e) => (e.target.style.transform = 'scale(1.04)')}
@@ -184,7 +188,7 @@ function RealtorProfile({ realtor }) {
                   right: 0,
                   height: '200px',
                   background:
-                    'linear-gradient(to top, rgba(13,12,10,0.9) 0%, transparent 100%)',
+                    'linear-gradient(to top, rgba(13,12,10,0.92) 0%, rgba(13,12,10,0.24) 62%, transparent 100%)',
                   pointerEvents: 'none',
                 }}
               />
@@ -197,8 +201,8 @@ function RealtorProfile({ realtor }) {
                 bottom: '-1px',
                 left: '24px',
                 right: '24px',
-                padding: '20px 24px',
-                background: 'rgba(13,12,10,0.95)',
+                padding: '18px 22px',
+                background: 'rgba(13,12,10,0.96)',
                 borderTop: '1px solid rgba(199,168,107,0.3)',
                 display: 'flex',
                 alignItems: 'center',
@@ -218,7 +222,9 @@ function RealtorProfile({ realtor }) {
               </span>
               <span
                 style={{
-                  fontSize: '1rem',
+                  maxWidth: '68%',
+                  fontSize: '0.92rem',
+                  lineHeight: 1.55,
                   color: '#c7a86b',
                   fontFamily: "'Montserrat', sans-serif",
                   fontWeight: 500,
@@ -240,7 +246,7 @@ function RealtorProfile({ realtor }) {
                   key={index}
                   variants={fadeUp}
                   style={{
-                    padding: '24px 28px',
+                    padding: '26px 28px',
                     border: '1px solid rgba(199,168,107,0.12)',
                     borderRadius: '2px',
                     background: 'rgba(255,255,255,0.02)',
@@ -274,7 +280,7 @@ function RealtorProfile({ realtor }) {
                     <p
                       style={{
                         fontSize: '0.8rem',
-                        letterSpacing: '0.2em',
+                        letterSpacing: '0.16em',
                         textTransform: 'uppercase',
                         color: '#c7a86b',
                         marginBottom: '6px',
@@ -308,7 +314,7 @@ function RealtorProfile({ realtor }) {
             <motion.div
               variants={fadeUp}
               style={{
-                padding: '36px',
+                padding: '38px',
                 border: '1px solid rgba(199,168,107,0.18)',
                 borderRadius: '2px',
                 background: 'rgba(199,168,107,0.03)',
@@ -319,18 +325,18 @@ function RealtorProfile({ realtor }) {
                 <p
                   style={{
                     fontSize: '10px',
-                    letterSpacing: '0.35em',
+                    letterSpacing: '0.24em',
                     textTransform: 'uppercase',
                     color: '#6b5e4e',
                     fontFamily: "'Montserrat', sans-serif",
                     marginBottom: '8px',
                   }}
                 >
-                  Lead Luxury Advisor
+                  Lead Advisor
                 </p>
                 <h2
                   style={{
-                    fontSize: '2rem',
+                    fontSize: '1.9rem',
                     fontWeight: 300,
                     color: '#f0e6d0',
                     letterSpacing: '0.02em',
@@ -348,9 +354,8 @@ function RealtorProfile({ realtor }) {
                     fontWeight: 300,
                   }}
                 >
-                  Specializing in ultra-luxury estates, discreet off-market acquisitions,
-                  and private portfolio strategy — for those who measure wealth in legacy,
-                  not listings.
+                  Advising on primary residences, discreet acquisitions, and property
+                  decisions that require patience, context, and privacy.
                 </p>
               </div>
 
@@ -359,8 +364,8 @@ function RealtorProfile({ realtor }) {
                 {[
                   { label: 'Global Luxury Advisor', year: '2026' },
                   { label: '$620M+ in closed transactions', year: null },
-                  { label: 'Trusted by sovereign families & principal investors', year: null },
-                  { label: 'Private portfolio concierge service', year: null },
+                  { label: 'Trusted by family offices and private clients', year: null },
+                  { label: 'Off-market acquisition advisory', year: null },
                 ].map((item, i) => (
                   <div
                     key={i}
@@ -486,6 +491,7 @@ function RealtorProfile({ realtor }) {
               {/* CTAs */}
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                 <button
+                  type="button"
                   onClick={() =>
                     document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
                   }
@@ -507,7 +513,7 @@ function RealtorProfile({ realtor }) {
                     transition: 'box-shadow 0.3s, transform 0.2s',
                   }}
                   onMouseEnter={(e) => {
-                    e.target.style.boxShadow = '0 28px_80px rgba(199,168,107,0.4)'
+                    e.target.style.boxShadow = '0 28px 80px rgba(199,168,107,0.4)'
                     e.target.style.transform = 'translateY(-1px)'
                   }}
                   onMouseLeave={(e) => {
@@ -519,6 +525,10 @@ function RealtorProfile({ realtor }) {
                 </button>
 
                 <button
+                  type="button"
+                  onClick={() =>
+                    document.querySelector('#properties')?.scrollIntoView({ behavior: 'smooth' })
+                  }
                   style={{
                     flex: 1,
                     minWidth: '140px',
