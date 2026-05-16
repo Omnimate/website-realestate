@@ -5,10 +5,9 @@ import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 
 const NEWSLETTER_ENDPOINT = import.meta.env.VITE_NEWSLETTER_ENDPOINT
 const LEAD_EMAIL = import.meta.env.VITE_LEAD_EMAIL || 'concierge@luxeestates.com'
-const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || ''
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-function LeadGen({ onBookConsultation, onOpenChat, isChatOpen }) {
+function LeadGen({ onBookConsultation }) {
   const { ref, inView } = useScrollAnimation({
     threshold: 0.2,
   })
@@ -16,10 +15,6 @@ function LeadGen({ onBookConsultation, onOpenChat, isChatOpen }) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle')
   const [message, setMessage] = useState('')
-  const contactHref = WHATSAPP_NUMBER
-    ? `https://wa.me/${WHATSAPP_NUMBER.replace(/\D/g, '')}`
-    : `mailto:${LEAD_EMAIL}?subject=${encodeURIComponent('Private luxury consultation')}`
-  const contactLabel = WHATSAPP_NUMBER ? 'WhatsApp' : 'Email Us'
 
   const handleNewsletterSubmit = (event) => {
     event.preventDefault()
@@ -82,31 +77,8 @@ function LeadGen({ onBookConsultation, onOpenChat, isChatOpen }) {
       initial={{ opacity: 0, y: 60 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="relative bg-[#f5f3ee] px-6 py-28 md:px-12"
+      className="relative bg-[#f5f3ee] px-6 py-20 md:px-12 md:py-24"
     >
-      <div
-        className={`fixed right-4 z-40 flex gap-3 transition-opacity duration-300 max-sm:inset-x-4 max-sm:bottom-4 max-sm:grid max-sm:grid-cols-2 md:bottom-6 md:right-6 md:flex-col ${
-          isChatOpen ? 'pointer-events-none opacity-0' : 'opacity-100'
-        }`}
-      >
-        <a
-          href={contactHref}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex min-h-12 items-center justify-center rounded-full bg-gradient-to-r from-[#c7a86b] to-[#e8d3a1] px-5 py-3 text-sm font-semibold text-[#14110d] shadow-[0_16px_42px_rgba(199,168,107,0.28)] transition-all duration-300 hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c7a86b]"
-        >
-          {contactLabel}
-        </a>
-
-        <button
-          type="button"
-          onClick={onOpenChat}
-          className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#c7a86b] bg-white px-5 py-3 text-sm font-semibold text-[#111] shadow-xl transition-all duration-300 hover:bg-[#111] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c7a86b]"
-        >
-          Live Chat
-        </button>
-      </div>
-
       <div className="mx-auto max-w-7xl">
         <div className="rounded-[2rem] border border-[#e8e1d5] bg-white p-8 shadow-[0_25px_70px_rgba(0,0,0,0.06)] md:p-12">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
@@ -135,7 +107,7 @@ function LeadGen({ onBookConsultation, onOpenChat, isChatOpen }) {
           </div>
         </div>
 
-        <div className="mx-auto mt-24 max-w-5xl text-center">
+        <div className="mx-auto mt-16 max-w-5xl text-center md:mt-20">
           <p className="mb-3 text-xs uppercase tracking-[0.32em] text-[#b79b5b] md:tracking-[0.4em]">
             Market Notes
           </p>
@@ -190,7 +162,7 @@ function LeadGen({ onBookConsultation, onOpenChat, isChatOpen }) {
             </p>
           )}
 
-          <div className="mt-24 rounded-[2rem] border border-dashed border-[#d8cfbf] bg-white/60 p-8 md:p-10">
+          <div className="mt-16 rounded-[2rem] border border-dashed border-[#d8cfbf] bg-white/60 p-8 md:mt-20 md:p-10">
             <p className="text-xs uppercase tracking-[0.3em] text-[#b79b5b] md:tracking-[0.35em]">
               Client Stories
             </p>
@@ -211,12 +183,6 @@ function LeadGen({ onBookConsultation, onOpenChat, isChatOpen }) {
 
 LeadGen.propTypes = {
   onBookConsultation: PropTypes.func.isRequired,
-  onOpenChat: PropTypes.func.isRequired,
-  isChatOpen: PropTypes.bool,
-}
-
-LeadGen.defaultProps = {
-  isChatOpen: false,
 }
 
 export default LeadGen

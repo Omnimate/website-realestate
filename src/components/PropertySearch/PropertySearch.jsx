@@ -176,7 +176,7 @@ function PropertySearch({ properties, onOpenInquiry }) {
   return (
     <section
       id="collection"
-      className="overflow-hidden py-24 md:px-12 md:py-28"
+      className="overflow-hidden py-20 md:px-12 md:py-24"
       style={{
         background: 'linear-gradient(180deg, #f5f1ea 0%, #faf8f4 60%, #f0ece3 100%)',
         fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -188,7 +188,7 @@ function PropertySearch({ properties, onOpenInquiry }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-16 flex flex-col items-center text-center"
+          className="mb-12 flex flex-col items-center text-center md:mb-14"
         >
           <p
             className="mb-5 text-[10px] font-semibold uppercase tracking-[0.34em] text-[#b79b5b] md:tracking-[0.45em]"
@@ -265,7 +265,7 @@ function PropertySearch({ properties, onOpenInquiry }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-16 text-center"
+          className="mt-12 text-center md:mt-14"
         >
           <button
             type="button"

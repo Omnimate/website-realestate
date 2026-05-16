@@ -10,7 +10,6 @@ function Navbar({
   logo,
   navLinks,
   onOpenModal,
-  onOpenChat,
 }) {
   const [menuOpen, setMenuOpen] =
     useState(false)
@@ -141,21 +140,6 @@ function Navbar({
           >
             Inquiry
           </motion.button>
-
-          {/* CHAT BUTTON */}
-          <motion.button
-            whileHover={{
-              y: -3,
-            }}
-            whileTap={{
-              scale: 0.96,
-            }}
-            type="button"
-            onClick={onOpenChat}
-            className="rounded-full border border-[#e4dccf] bg-white px-7 py-4 text-[0.78rem] font-semibold uppercase tracking-[0.24em] text-[#151515] transition-all duration-300 hover:border-[#b89554] hover:bg-[#f8f4ec] hover:text-[#b89554] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b89554]"
-          >
-            Chat
-          </motion.button>
         </nav>
 
         {/* MOBILE BUTTON */}
@@ -197,10 +181,10 @@ function Navbar({
             transition={{
               duration: 0.3,
             }}
-            className="border-t border-[#ece6db] bg-white px-6 py-8 shadow-2xl lg:hidden"
+            className="border-t border-[#ece6db] bg-white px-5 py-5 shadow-[0_18px_45px_rgba(0,0,0,0.08)] lg:hidden"
             id="mobile-navigation"
           >
-            <div className="flex flex-col gap-4">
+            <div className="mx-auto flex max-w-md flex-col gap-2">
 
               {navLinks.map((link) => (
                 <button
@@ -212,33 +196,24 @@ function Navbar({
                       link.href,
                     )
                   }
-                  className="rounded-2xl px-5 py-4 text-left text-sm font-semibold uppercase tracking-[0.22em] text-[#151515] transition-all duration-300 hover:bg-[#f8f4ec] hover:text-[#b89554] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b89554]"
+                  className="min-h-11 rounded-xl px-4 py-3 text-left text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-[#151515] transition-all duration-300 hover:bg-[#f8f4ec] hover:text-[#b89554] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b89554]"
                 >
                   {link.label}
                 </button>
               ))}
 
-              <button
-                type="button"
-                onClick={() => {
-                  onOpenModal()
-                  setMenuOpen(false)
-                }}
-                className="mt-3 rounded-full bg-gradient-to-r from-[#c7a86b] via-[#dcc18c] to-[#f3dfaa] px-6 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#14110d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b89554]"
-              >
-                Inquiry
-              </button>
-
-              <button
-                type="button"
-                onClick={() => {
-                  onOpenChat()
-                  setMenuOpen(false)
-                }}
-                className="rounded-full border border-[#e4dccf] px-6 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#151515] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b89554]"
-              >
-                Chat
-              </button>
+              <div className="mt-3 border-t border-[#ece6db] pt-4">
+                <button
+                  type="button"
+                  onClick={() => {
+                    onOpenModal()
+                    setMenuOpen(false)
+                  }}
+                  className="min-h-11 w-full rounded-full bg-gradient-to-r from-[#c7a86b] via-[#dcc18c] to-[#f3dfaa] px-4 py-3 text-[0.76rem] font-semibold uppercase tracking-[0.16em] text-[#14110d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b89554]"
+                >
+                  Inquiry
+                </button>
+              </div>
             </div>
           </motion.div>
         )}
@@ -260,9 +235,6 @@ Navbar.propTypes = {
   ).isRequired,
 
   onOpenModal:
-    PropTypes.func.isRequired,
-
-  onOpenChat:
     PropTypes.func.isRequired,
 }
 

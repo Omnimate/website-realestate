@@ -73,35 +73,35 @@ function Modal({ isOpen, title, children, onClose }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.25, ease: 'easeOut' }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 py-6"
+      className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 px-0 pt-8 sm:items-center sm:px-4 sm:py-6"
       onClick={onClose}
     >
       <motion.div
         ref={dialogRef}
-        initial={{ opacity: 0, scale: 0.96 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.96 }}
+        initial={{ opacity: 0, y: 28, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 28, scale: 0.98 }}
         transition={{ duration: 0.22, ease: 'easeOut' }}
-        className="max-h-[92vh] w-full max-w-2xl overflow-hidden rounded-[1.5rem] bg-white shadow-2xl"
+        className="flex max-h-[calc(100dvh-1rem)] w-full max-w-2xl flex-col overflow-hidden rounded-t-[1.25rem] bg-white shadow-2xl sm:max-h-[92vh] sm:rounded-[1.5rem]"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="flex items-center justify-between border-b border-gray-200 px-6 py-5">
-          <h2 id="modal-title" className="text-2xl font-semibold text-dark-text">
+        <div className="flex shrink-0 items-center justify-between border-b border-gray-200 px-5 py-4 sm:px-6 sm:py-5">
+          <h2 id="modal-title" className="text-xl font-semibold text-dark-text sm:text-2xl">
             {title}
           </h2>
 
           <button
             ref={closeButtonRef}
             type="button"
-            className="flex h-11 w-11 items-center justify-center rounded-full text-2xl text-body-text transition hover:text-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-xl text-body-text transition hover:text-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
             onClick={onClose}
             aria-label="Close modal"
           >
-            x
+            X
           </button>
         </div>
 
-        <div className="p-6">{children}</div>
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-5 sm:p-6">{children}</div>
       </motion.div>
     </motion.div>
   )

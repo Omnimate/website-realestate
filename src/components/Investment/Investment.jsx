@@ -41,7 +41,7 @@ function Investment() {
       initial={{ opacity: 0, y: 60 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="relative overflow-hidden bg-[#0f0f0f] px-6 py-28 text-white md:px-12"
+      className="relative overflow-hidden bg-[#0f0f0f] px-6 py-20 text-white md:px-12 md:py-24"
     >
 
       {/* BACKGROUND EFFECTS */}
@@ -69,7 +69,7 @@ function Investment() {
         </div>
 
         {/* FEATURE CARDS */}
-        <div className="mt-20 grid gap-8 md:grid-cols-3">
+        <div className="mt-14 grid gap-8 md:mt-16 md:grid-cols-3">
           {features.map((feature) => {
             const Icon = feature.icon
 
@@ -97,7 +97,7 @@ function Investment() {
         </div>
 
         {/* STATS */}
-        <div className="mt-20 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:mt-16 md:grid-cols-3">
 
           <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 text-center backdrop-blur-xl">
             <p className="text-xs uppercase tracking-[0.35em] text-white/60">
@@ -143,7 +143,7 @@ function Investment() {
         </div>
 
         {/* CTA */}
-        <div className="mt-20 text-center">
+        <div className="mt-14 text-center md:mt-16">
           <button
             type="button"
             onClick={handleDiscover}

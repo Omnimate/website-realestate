@@ -16,9 +16,7 @@ import Trust from './components/Trust/Trust'
 import SeoContent from './components/SeoContent/SeoContent'
 import Footer from './components/Footer/Footer'
 import Modal from './components/Modal/Modal'
-import BackToTop from './components/BackToTop/BackToTop'
 import Toast from './components/Toast/Toast'
-import ChatWidget from './components/ChatWidget/ChatWidget'
 import InquiryModal from './components/InquiryModal/InquiryModal'
 import NotFound from './components/NotFound/NotFound'
 
@@ -35,7 +33,6 @@ import {
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [chatOpen, setChatOpen] = useState(false)
   const [inquirySource, setInquirySource] = useState('general')
 
   const [toasts, setToasts] = useState([])
@@ -92,10 +89,6 @@ function App() {
   const openInquiry = (source = 'general') => {
     setInquirySource(source)
     setIsModalOpen(true)
-  }
-
-  const openChat = () => {
-    setChatOpen(true)
   }
 
   const handleInquirySuccess = ({ delivery }) => {
@@ -168,7 +161,6 @@ function App() {
           logo="LUXE ESTATES"
           navLinks={navLinks}
           onOpenModal={() => openInquiry('navbar')}
-          onOpenChat={openChat}
         />
 
         {/* ROUTES */}
@@ -225,10 +217,6 @@ function App() {
                   onBookConsultation={() =>
                     openInquiry('leadgen_consultation')
                   }
-                  onOpenChat={() =>
-                    openChat()
-                  }
-                  isChatOpen={chatOpen}
                 />
 
                 {/* TRUST */}
@@ -287,16 +275,6 @@ function App() {
           }
         />
 
-        {/* CHAT */}
-        <ChatWidget
-          isOpen={chatOpen}
-          onClose={() =>
-            setChatOpen(false)
-          }
-        />
-
-        {/* BACK TO TOP */}
-        <BackToTop />
       </div>
     </BrowserRouter>
   )

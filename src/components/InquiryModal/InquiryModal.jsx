@@ -118,35 +118,35 @@ function InquiryModal({ source, onSuccess }) {
   }
 
   return (
-    <div className="max-h-[85vh] overflow-y-auto pr-2">
+    <div>
 
       <form
         onSubmit={handleSubmit}
         noValidate
-        className="space-y-6"
+        className="space-y-5 sm:space-y-6"
       >
 
         {/* HEADER */}
         <div>
 
-          <p className="mb-3 text-xs uppercase tracking-[0.35em] text-[#b79b5b]">
+          <p className="mb-2 text-[0.68rem] uppercase tracking-[0.28em] text-[#b79b5b] sm:mb-3 sm:text-xs sm:tracking-[0.35em]">
             Luxury Consultation
           </p>
 
-          <h2 className="text-3xl font-semibold text-[#151515]">
+          <h2 className="text-2xl font-semibold text-[#151515] sm:text-3xl">
             Private Inquiry
           </h2>
 
-          <p className="mt-4 text-base leading-7 text-[#5f5f5f]">
+          <p className="mt-3 text-sm leading-6 text-[#5f5f5f] sm:mt-4 sm:text-base sm:leading-7">
             Connect with our luxury property advisors for personalized recommendations and exclusive opportunities.
           </p>
         </div>
 
         {/* INPUTS */}
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
 
           <div>
-            <label htmlFor="inquiry-name" className="mb-2 block text-sm font-semibold text-[#151515]">
+            <label htmlFor="inquiry-name" className="mb-1.5 block text-sm font-semibold text-[#151515] sm:mb-2">
               Name
             </label>
 
@@ -160,7 +160,7 @@ function InquiryModal({ source, onSuccess }) {
               required
               aria-invalid={Boolean(errors.name)}
               aria-describedby={errors.name ? 'inquiry-name-error' : undefined}
-              className="w-full rounded-2xl border border-[#e8dfcf] bg-[#faf9f6] px-5 py-4 text-sm text-[#151515] outline-none transition focus:border-[#c7a86b] focus-visible:ring-2 focus-visible:ring-[#c7a86b]/40"
+              className="w-full rounded-xl border border-[#e8dfcf] bg-[#faf9f6] px-4 py-3 text-sm text-[#151515] outline-none transition focus:border-[#c7a86b] focus-visible:ring-2 focus-visible:ring-[#c7a86b]/40 sm:rounded-2xl sm:px-5 sm:py-4"
             />
 
             {errors.name && (
@@ -171,7 +171,7 @@ function InquiryModal({ source, onSuccess }) {
           </div>
 
           <div>
-            <label htmlFor="inquiry-email" className="mb-2 block text-sm font-semibold text-[#151515]">
+            <label htmlFor="inquiry-email" className="mb-1.5 block text-sm font-semibold text-[#151515] sm:mb-2">
               Email
             </label>
 
@@ -185,7 +185,7 @@ function InquiryModal({ source, onSuccess }) {
               required
               aria-invalid={Boolean(errors.email)}
               aria-describedby={errors.email ? 'inquiry-email-error' : undefined}
-              className="w-full rounded-2xl border border-[#e8dfcf] bg-[#faf9f6] px-5 py-4 text-sm text-[#151515] outline-none transition focus:border-[#c7a86b] focus-visible:ring-2 focus-visible:ring-[#c7a86b]/40"
+              className="w-full rounded-xl border border-[#e8dfcf] bg-[#faf9f6] px-4 py-3 text-sm text-[#151515] outline-none transition focus:border-[#c7a86b] focus-visible:ring-2 focus-visible:ring-[#c7a86b]/40 sm:rounded-2xl sm:px-5 sm:py-4"
             />
 
             {errors.email && (
@@ -198,7 +198,7 @@ function InquiryModal({ source, onSuccess }) {
 
         {/* PHONE */}
         <div>
-          <label htmlFor="inquiry-phone" className="mb-2 block text-sm font-semibold text-[#151515]">
+          <label htmlFor="inquiry-phone" className="mb-1.5 block text-sm font-semibold text-[#151515] sm:mb-2">
             Phone Number
           </label>
 
@@ -212,7 +212,7 @@ function InquiryModal({ source, onSuccess }) {
             required
             aria-invalid={Boolean(errors.phone)}
             aria-describedby={errors.phone ? 'inquiry-phone-error' : undefined}
-            className="w-full rounded-2xl border border-[#e8dfcf] bg-[#faf9f6] px-5 py-4 text-sm text-[#151515] outline-none transition focus:border-[#c7a86b] focus-visible:ring-2 focus-visible:ring-[#c7a86b]/40"
+            className="w-full rounded-xl border border-[#e8dfcf] bg-[#faf9f6] px-4 py-3 text-sm text-[#151515] outline-none transition focus:border-[#c7a86b] focus-visible:ring-2 focus-visible:ring-[#c7a86b]/40 sm:rounded-2xl sm:px-5 sm:py-4"
           />
 
           {errors.phone && (
@@ -224,20 +224,20 @@ function InquiryModal({ source, onSuccess }) {
 
         {/* MESSAGE */}
         <div>
-          <label htmlFor="inquiry-message" className="mb-2 block text-sm font-semibold text-[#151515]">
+          <label htmlFor="inquiry-message" className="mb-1.5 block text-sm font-semibold text-[#151515] sm:mb-2">
             Requirements
           </label>
 
           <textarea
             id="inquiry-message"
-            rows={5}
+            rows={4}
             name="message"
             value={form.message}
             onChange={handleChange}
             required
             aria-invalid={Boolean(errors.message)}
             aria-describedby={errors.message ? 'inquiry-message-error' : undefined}
-            className="w-full rounded-2xl border border-[#e8dfcf] bg-[#faf9f6] px-5 py-4 text-sm text-[#151515] outline-none transition focus:border-[#c7a86b] focus-visible:ring-2 focus-visible:ring-[#c7a86b]/40"
+            className="w-full rounded-xl border border-[#e8dfcf] bg-[#faf9f6] px-4 py-3 text-sm text-[#151515] outline-none transition focus:border-[#c7a86b] focus-visible:ring-2 focus-visible:ring-[#c7a86b]/40 sm:rounded-2xl sm:px-5 sm:py-4"
           />
 
           {errors.message && (
@@ -248,7 +248,7 @@ function InquiryModal({ source, onSuccess }) {
         </div>
 
         {/* BUTTON */}
-        <div className="sticky bottom-0 bg-white pt-2">
+        <div className="sticky bottom-0 bg-white pb-[max(env(safe-area-inset-bottom),0px)] pt-2">
           {submitError && (
             <p className="mb-3 rounded-2xl bg-red-50 px-4 py-3 text-sm leading-6 text-red-700">
               {submitError}
@@ -258,7 +258,7 @@ function InquiryModal({ source, onSuccess }) {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full rounded-full bg-gradient-to-r from-[#c7a86b] via-[#e0ca90] to-[#f3e3b0] px-8 py-5 text-sm font-semibold uppercase tracking-[0.18em] text-[#14110d] shadow-[0_24px_70px_rgba(199,168,107,0.35)] transition-all duration-300 hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c7a86b] disabled:cursor-not-allowed disabled:opacity-70"
+            className="min-h-12 w-full rounded-full bg-gradient-to-r from-[#c7a86b] via-[#e0ca90] to-[#f3e3b0] px-6 py-3.5 text-sm font-semibold uppercase tracking-[0.16em] text-[#14110d] shadow-[0_18px_50px_rgba(199,168,107,0.28)] transition-all duration-300 hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c7a86b] disabled:cursor-not-allowed disabled:opacity-70 sm:px-8 sm:py-5 sm:tracking-[0.18em] sm:shadow-[0_24px_70px_rgba(199,168,107,0.35)]"
           >
             {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
           </button>
